@@ -1,0 +1,43 @@
+<!-- <p *ngFor="let n of result">
+  <span class="label label-default">{{n}}</span>
+</p>
+ -->
+<div class ="col-xs-2">
+	
+</div>
+<div class ="col-xs-2">
+	<div *ngFor="let n of loopService.getArray(16); let i = index">
+		<span class="label label-default">{{getAssociation(i)}}</span>
+		<br>
+		<br>
+	</div>
+</div>
+<div class ="col-xs-2">
+	<div *ngFor="let n of loopService.getArray(8,16,2);">
+		<br>
+		<span class="label label-default">{{getAssociation(n)}}</span>
+		<br>
+		<br>
+		<br>
+	</div>
+</div>
+<div class ="col-xs-2">
+	<div *ngFor="let n of loopService.getArray(4,24,1);">
+		<br *ngFor="let n of loopService.getArray(3);">
+		<span class="label label-default">{{getAssociation(n)}}</span>
+		<br *ngFor="let n of loopService.getArray(5);">
+	</div>
+</div>
+
+<div class ="col-xs-2">
+	<br *ngFor="let n of loopService.getArray(7);">
+	<span class="label label-default">{{getAssociation(28)}}</span>
+	<br *ngFor="let n of loopService.getArray(16);">
+	<span class="label label-default">{{getAssociation(29)}}</span>
+</div>
+<div class ="col-xs-2">
+	<br *ngFor="let n of loopService.getArray(15);">
+	<span class="label label-default">{{getAssociation(30)}}</span>
+</div>
+
+<!-- Service for range generator array -->

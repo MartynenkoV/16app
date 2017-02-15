@@ -1,0 +1,112 @@
+<div class="container">
+	<div class="row">
+		<!-- Step1-->
+		<div class="col-md-6" *ngIf="step==0">
+			<form class="form-horizontal" (ngSubmit)="onSubmit()">
+				<div class="form-group" *ngFor="let n of asLetter; let i = index">
+					<label class="control-label col-sm-2" for="inputdefault">{{n}}:</label>
+					<div class="col-sm-8">
+						<input  class="form-control" id="inputdefault" type="text" (keyup)="setAssosiation($event,i)" required>
+					</div>
+				</div>
+				<div class="col-sm-2"></div><button type="submit" class="btn btn-success">Продолжить</button>
+			</form>
+		</div>
+		<!-- Step2-->
+		<div class="col-md-6" *ngIf="step==1">
+			<form class="form-horizontal" (ngSubmit)="onSubmit()">
+				<div  *ngFor="let n of loopService.getArray(8,0,2); let i = index;" >
+					<div class="form-group">
+						<div class=" col-sm-2"></div>
+						<label class="control-label  col-sm-2">{{getAssosiation(n)}}</label>
+						<label class="control-label col-sm-2">{{getAssosiation(n+1)}}</label>
+					</div>  
+					<div class="form-group">
+						<div class=" col-sm-2"></div>
+						<div class=" col-sm-10">
+							<input  class="form-control" id="inputdefault" type="text" (keyup)="setAssosiation($event,i+16)" required>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2"></div><button type="submit" class="btn btn-success">Продолжить</button>
+			</form>
+		</div>
+		<!-- Step3-->
+		<div class="col-md-6" *ngIf="step==2">
+			<form class="form-horizontal" (ngSubmit)="onSubmit()">
+				<div  *ngFor="let n of loopService.getArray(4,16,2); let i = index;" >
+					<div class="form-group">
+						<div class=" col-sm-2"></div>
+						<label class="control-label  col-sm-2">{{getAssosiation(n)}}</label>
+						<label class="control-label col-sm-2">{{getAssosiation(n+1)}}</label>
+					</div> 
+					<div class="form-group">
+						<div class=" col-sm-2"></div>
+						<div class=" col-sm-10">
+							<input  class="form-control" id="inputdefault" type="text" (keyup)="setAssosiation($event,i+24)" required>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2"></div><button type="submit" class="btn btn-success">Продолжить</button>
+			</form>
+		</div>
+		<!-- Step4-->
+		<div class="col-md-6" *ngIf="step== 3">
+			<form class="form-horizontal" (ngSubmit)="onSubmit()">
+				<div  *ngFor="let n of arr3; let i = index;" >
+					<div class="form-group">
+						<div class=" col-sm-2"></div>
+						<label class="control-label  col-sm-2">{{getAssosiation(n)}}</label>
+						<label class="control-label col-sm-2">{{getAssosiation(n+1)}}</label>
+					</div> 
+					<div class="form-group">
+						<div class=" col-sm-2"></div>
+						<div class=" col-sm-10">
+							<input  class="form-control" id="inputdefault" type="text" (keyup)="setAssosiation($event,i+28)" required>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2"></div><button type="submit" class="btn btn-success">Продолжить</button>
+			</form>
+		</div>
+
+
+		<!-- Step5-->	
+
+		<div class="col-md-6" *ngIf="step== 4">
+			<form class="form-horizontal" (ngSubmit)="onSubmit()">
+				
+				<div class="form-group">
+					<div class=" col-sm-2"></div>
+					<label class="control-label  col-sm-2">{{getAssosiation(28)}}:</label>
+					<label class="control-label col-sm-2">{{getAssosiation(29)}}:</label>
+				</div>  
+				<div class="form-group">
+					<div class=" col-sm-2"></div>
+					<div class=" col-sm-10">
+						<input  class="form-control" id="inputdefault" type="text" (keyup)="setAssosiation($event,30)" required>
+					</div>
+				</div>
+				
+				<div class="col-sm-2"></div><button type="submit" class="btn btn-success">Продолжить</button>
+			</form>
+		</div>
+
+		<!-- Step6-->
+		<app-result [result]="assosiations" *ngIf="step== 5"></app-result>
+		<!-- Step6-->		
+		<div class="col-md-6 hidden-sm hidden-xs " *ngIf="step < 5">
+			<img class="img-responsive" src="../assets/back2.jpg" alt="Chania">
+		</div>
+		<div class="col-md-6 hidden-sm hidden-xs" *ngIf="step > 2"></div>
+		<div class="col-md-6 col-sm-12" *ngIf="step < 5">
+			<p>Введите ассоциацию для</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+				aria-valuemin="0" aria-valuemax="100" [style.width]="getProgress()">
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
